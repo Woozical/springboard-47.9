@@ -124,7 +124,15 @@ class BinarySearchTree {
    * Return an array of visited nodes. */
 
   bfs() {
-
+    const path = [];
+    const travQueue = this.root ? [this.root] : [];
+    while (travQueue.length){
+      let current = travQueue.shift();
+      path.push(current.val);
+      if (current.left) travQueue.push(current.left);
+      if (current.right) travQueue.push(current.right);
+    }
+    return path;
   }
 
   /** Further Study!
